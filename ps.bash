@@ -21,7 +21,7 @@ do
     temp=$(shuf -i 0-5000 -n$range)
     echo "----------RUN $i-----$range Nums-----"
     temp=$(echo "$temp" | tr '\n' ' ')
-    timeout 10s valgrind --leak-check=full --log-file=val.log --error-exitcode=42 ./swap.a ${temp[@]} > text.txt
+    timeout 10s valgrind --leak-check=full --log-file=val.log --error-exitcode=42 ./push_swap ${temp[@]} > text.txt
     checker=$(cat text.txt | ./checker_linux ${temp[@]})
     echo $checker
     status=$?
